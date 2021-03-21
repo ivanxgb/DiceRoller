@@ -10,38 +10,41 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val resultText: TextView = findViewById(R.id.result_text)
+
 
         val rollButon: Button = findViewById(R.id.roll_button)
         val countUp: Button = findViewById(R.id.countUp_Button)
-
-        rollButon.setOnClickListener { rollDice() }
-        countUp.setOnClickListener { countUp() }
+        val resetButton: Button = findViewById(R.id.reset_button)
 
 
+        rollButon.setOnClickListener { rollDice(resultText) }
+        countUp.setOnClickListener { countUp(resultText) }
+        resetButton.setOnClickListener {reset(resultText)}
     }
 
 
-    private fun rollDice() {
+    private fun rollDice(resultText: TextView) {
         val randomInt = (1..6).random()
-        val resulText: TextView = findViewById(R.id.result_text)
-
-        resulText.text = randomInt.toString()
+        resultText.text = randomInt.toString()
     }
 
-    private fun countUp() {
-        val resulText: TextView = findViewById(R.id.result_text)
+    private fun countUp(resultText: TextView) {
         var counter = 1
-
-        if (resulText.text.toString().toIntOrNull() == null) {
-            resulText.text = counter.toString()
+        if (resultText.text.toString().toIntOrNull() == null) {
+            resultText.text = counter.toString()
         } else {
-            counter = resulText.text.toString().toInt()
+            counter = resultText.text.toString().toInt()
 
             if (counter < 6) {
                 counter++
-                resulText.text = counter.toString()
+                resultText.text = counter.toString()
             }
         }
+    }
+
+    private fun reset(resultText: TextView) {
+        resultText.text = "0"
     }
 
 }
