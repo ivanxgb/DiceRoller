@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,12 +10,22 @@
     android:layout_gravity="center_vertical"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/result_text"
+    <ImageView
+        android:id="@+id/first_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/empty_dice"
+        />
+
+    <ImageView
+        android:id="@+id/second_dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/empty_dice"
+        />
+
 
     <Button
         android:id="@+id/roll_button"
@@ -24,21 +35,11 @@
         android:layout_gravity="center_horizontal"/>
 
     <Button
-        android:id="@+id/countUp_Button"
+        android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/countUp_text"
-        />
-
-    <Button
-        android:id="@+id/reset_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reset_label"
+        android:text="@string/clear_label"
         android:layout_gravity="center_horizontal"
         />
-
-
 
 </LinearLayout>
